@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  # Banco de Dados MySQL 8.0
+  mysql:
+    image: mysql:8.0
+    container_name: alugaufsc-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: aluga_ufsc
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./backend/src/main/resources/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql
+      - ./backend/src/main/resources/data.sql:/docker-entrypoint-initdb.d/02-data.sql
+    networks:
+      - alugaufsc-net
+
+  # Backend Spring Boot (Java 21)
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: alugaufsc-backend
+    restart: always
+    depends_on:
+      - mysql
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/aluga_ufsc?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+    ports:
+      - "8080:8080"
+    networks:
+      - alugaufsc-net
+
+  # Front-end React (Vite)
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: alugaufsc-frontend
+    restart: always
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    networks:
+      - alugaufsc-net
+
+volumes:
+  mysql_data:
+
+networks:
+  alugaufsc-net:
+    driver: bridge
+
