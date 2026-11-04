@@ -22,10 +22,10 @@ export default function AboutModal({ onClose }) {
             </div>
             <div>
               <h3 className="text-lg font-extrabold text-slate-900">
-                AlugaUFSC — Plataforma Universitária
+                FloGuel — Plataforma de Aluguel Universitário
               </h3>
               <p className="text-xs text-slate-500">
-                Florianópolis • Campus Reitor João David Ferreira Lima (Trindade)
+                Florianópolis
               </p>
             </div>
           </div>
@@ -96,14 +96,6 @@ export default function AboutModal({ onClose }) {
                 </span>
               </div>
             </div>
-          </div>
-
-          {/* Aviso sobre Dados Demonstrativos */}
-          <div className="p-4 rounded-2xl bg-amber-50/70 border border-amber-200 text-amber-950 text-xs">
-            <span className="font-bold block mb-1">
-              ⚠️ Nota sobre os Dados Demonstrativos:
-            </span>
-            Em cumprimento aos requisitos de desenvolvimento ético, todos os imóveis listados utilizam dados demonstrativos realistas mapeados com precisão nas ruas verdadeiras de Florianópolis (Trindade, Pantanal, Carvoeira, Córrego Grande, Serrinha e Itacorubi), servindo como base funcional completa para conectar corretores, estudantes e proprietários.
           </div>
 
           {/* Stack Tecnológica */}

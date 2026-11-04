@@ -61,9 +61,6 @@ export default function PropertyCard({
               {property.available ? 'Disponível' : 'Histórico (Alugado)'}
             </span>
 
-            <span className="px-2 py-0.5 rounded-full text-[11px] font-semibold bg-white/90 backdrop-blur-md text-slate-800 shadow-xs">
-              {property.subtype}
-            </span>
           </div>
 
           {/* Botão de Favoritar */}
@@ -85,19 +82,18 @@ export default function PropertyCard({
         </div>
 
         {/* Distância e tempo de caminhada da UFSC no rodapé da imagem */}
-        <div className="absolute bottom-2.5 left-2.5 right-2.5 flex items-center justify-between text-white text-xs font-semibold pointer-events-none">
-          <div className="flex items-center gap-1 bg-slate-900/80 backdrop-blur-md px-2.5 py-1 rounded-lg">
+        <div className="border flex rounded-full shrink-0 backdrop-blur-md absolute bottom-0.5 left-2.5 right-2.5 flex items-center justify-between text-white text-xs font-semibold pointer-events-none">
+          <div className="flex items-center gap-1 px-2.5 py-1 rounded-lg">
             <Footprints className="w-3.5 h-3.5 text-blue-400" />
             <span>
               {formatDistance(property.distanceKm)} da {activeUniversity.shortName}
             </span>
             <span className="text-slate-300 font-normal">
-              (~{walkMins} min a pé)
             </span>
           </div>
 
           {/* Índice de Transparência Universitária */}
-          <div className="flex items-center gap-1 bg-blue-600/90 backdrop-blur-md px-2 py-1 rounded-lg text-white font-bold text-[11px]">
+          <div className="flex items-center gap-1 mr-2 bg-blue-600/90 backdrop-blur-md px-2 py-1 rounded-lg text-white font-bold text-[11px]">
             <ShieldCheck className="w-3.5 h-3.5 text-white" />
             <span>{property.transparencyScore?.toFixed(1)}</span>
           </div>

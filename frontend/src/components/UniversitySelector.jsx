@@ -1,6 +1,6 @@
-import React from 'react';
-import { GraduationCap, MapPin, ChevronDown } from 'lucide-react';
-import { universities } from '../data/universitiesData';
+import React from "react";
+import { GraduationCap } from "lucide-react";
+import { universities } from "../data/universitiesData";
 
 export default function UniversitySelector({
   selectedUniversity,
@@ -19,30 +19,13 @@ export default function UniversitySelector({
             <button
               key={uni.id}
               onClick={() => onSelectUniversity(uni)}
-              className={`shrink-0 flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold transition-all border ${
+              className={`shrink-0 flex items-center justify-center px-3 py-1.5 rounded-full text-xs font-semibold text-center transition-all border ${
                 isSelected
-                  ? 'bg-blue-600 text-white border-blue-600 shadow-sm shadow-blue-500/30'
-                  : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-100 hover:border-slate-300'
+                  ? "bg-blue-600 text-white border-blue-600 shadow-sm shadow-blue-500/30"
+                  : "bg-white text-slate-700 border-slate-200 hover:bg-slate-100 hover:border-slate-300"
               }`}
             >
               <span>{uni.shortName}</span>
-              {uni.tag === 'Principal' ? (
-                <span
-                  className={`text-[10px] px-1.5 py-0.2 rounded-full font-bold uppercase tracking-wider ${
-                    isSelected ? 'bg-blue-700 text-blue-100' : 'bg-blue-100 text-blue-700'
-                  }`}
-                >
-                  Foco
-                </span>
-              ) : (
-                <span
-                  className={`text-[10px] px-1.5 py-0.2 rounded-full font-medium ${
-                    isSelected ? 'bg-blue-700 text-blue-100' : 'bg-slate-100 text-slate-500'
-                  }`}
-                >
-                  Expansão
-                </span>
-              )}
             </button>
           );
         })}
@@ -50,4 +33,3 @@ export default function UniversitySelector({
     </div>
   );
 }
-

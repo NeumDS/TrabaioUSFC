@@ -28,7 +28,7 @@ export default function FilterSidebar({
         <div className="flex items-center gap-2">
           <SlidersHorizontal className="w-4 h-4 text-blue-600" />
           <h2 className="text-base font-bold text-slate-900">Filtros de Busca</h2>
-          <span className="px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">
+          <span className=" shrink-0 mr-2 px-2 py-1.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">
             {totalResults} {totalResults === 1 ? 'imóvel' : 'imóveis'}
           </span>
         </div>

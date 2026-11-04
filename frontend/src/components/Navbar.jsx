@@ -26,7 +26,7 @@ export default function Navbar({
           <div>
             <div className="flex items-center gap-2">
               <span className="font-extrabold text-xl tracking-tight text-slate-900">
-                Aluga<span className="text-blue-600">UFSC</span>
+                Flo<span className="text-blue-600">Guel</span>
               </span>
               <span className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">
                 <MapPin className="w-3 h-3 text-blue-600" />
@@ -35,23 +35,12 @@ export default function Navbar({
             </div>
             <p className="text-xs text-slate-500 flex items-center gap-1 truncate max-w-[280px] sm:max-w-none">
               <span>{university.shortName}</span>
-              <span className="text-slate-300">•</span>
-              <span className="hidden md:inline">Campus Trindade e Adjacências</span>
             </p>
           </div>
         </div>
 
-        {/* Center / Highlights */}
-        <div className="hidden lg:flex items-center gap-4 text-xs font-medium text-slate-600">
-          <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-800 border border-emerald-200">
-            <ShieldCheck className="w-4 h-4 text-emerald-600" />
-            <span>Índice de Transparência & Mofo</span>
-          </div>
-          <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-50 text-blue-800 border border-blue-200">
-            <Sparkles className="w-4 h-4 text-blue-600" />
-            <span>Histórico Real de Aluguéis</span>
-          </div>
-        </div>
+      
+       
 
         {/* Actions */}
         <div className="flex items-center gap-2">
