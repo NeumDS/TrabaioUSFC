@@ -39,9 +39,6 @@ export default function Navbar({
           </div>
         </div>
 
-      
-       
-
         {/* Actions */}
         <div className="flex items-center gap-2">
           {/* Favorites Filter button */}

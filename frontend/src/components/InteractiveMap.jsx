@@ -164,13 +164,6 @@ export default function InteractiveMap({
       const isSelected = selectedProperty?.id === prop.id;
       const isHovered = hoveredPropertyId === prop.id;
 
-      // Custo mensal total (aluguel + condomínio + iptu + seguro) de acordo com a tela do apartamento
-      const totalMonthlyCost =
-        (prop.monthlyRent || 0) +
-        (prop.condoFee || 0) +
-        (prop.iptu || 0) +
-        (prop.insurance || 0);
-
       // Ícone estilo Airbnb com preço e status
       const bgColor = isAvailable
         ? isSelected || isHovered
@@ -201,7 +194,7 @@ export default function InteractiveMap({
           height: 100%;
           box-sizing: border-box;
         ">
-          <span>${formatCurrency(totalMonthlyCost)}</span>
+          <span>${formatCurrency(prop.monthlyRent)}</span>
           ${!isAvailable ? '<span style="font-size: 10px; opacity: 0.9;">(Alugado)</span>' : ''}
         </div>
       `;
@@ -264,7 +257,7 @@ export default function InteractiveMap({
 
             <div style="display: flex; align-items: baseline; gap: 4px; margin-bottom: 8px;">
               <span style="font-size: 16px; font-weight: 800; color: #1e3a8a;">
-                ${formatCurrency(totalMonthlyCost)}
+                ${formatCurrency(prop.monthlyRent)}
               </span>
               <span style="font-size: 11px; color: #64748b;">/mês</span>
             </div>
