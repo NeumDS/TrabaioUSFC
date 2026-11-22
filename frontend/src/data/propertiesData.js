@@ -182,7 +182,7 @@ export const propertiesData = [
     description:
       'Apartamento ideal para 2 amigos(as) dividirem o aluguel (sai aprox. R$ 1.150/mês para cada um). Fica a 450 metros da guarita sul da UFSC (acesso fácil ao Centro de Desportos CDS e Reitoria). Bairro super jovem, repleto de bares universitários, farmácias e mercadinhos.',
     photos: [
-      'https://images.unsplash.com/photo-1502005229762-ee152da92e06?auto=format&fit=crop&w=1200&q=80',
+      'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%2Fid%2FOIP.lnIpFAX6cZ0FedHyADAoIwHaE1%3Fr%3D0%26pid%3DApi&f=1&ipt=9da6e069a2afdfa1fa6d46ef78c3f46d6460cbbb4dccc45bf831f8cf9557da12&ipo=images',
       'https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80',
     ],

@@ -75,7 +75,7 @@ export default function Navbar({
             className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs sm:text-sm font-medium text-slate-700 hover:text-blue-600 hover:bg-blue-50/80 border border-slate-200 transition-colors"
           >
             <Info className="w-4 h-4 text-blue-600" />
-            <span className="hidden sm:inline">Transparência UFSC</span>
+            <span className="hidden sm:inline">Informações</span>
           </button>
         </div>
       </div>

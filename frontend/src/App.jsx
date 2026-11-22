@@ -30,7 +30,7 @@ export default function App() {
   // Layout responsivo móvel: 'SPLIT' (desktop) | 'MAP' | 'LIST'
   const [mobileView, setMobileView] = useState('LIST');
   const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
-  const [filtrosAbertos, setFiltrosAbertos] = useState(true);
+  const [filtrosAbertos, setFiltrosAbertos] = useState(false);
 
   // Filtros
   const [filters, setFilters] = useState({

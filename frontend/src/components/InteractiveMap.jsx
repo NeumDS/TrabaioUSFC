@@ -164,6 +164,13 @@ export default function InteractiveMap({
       const isSelected = selectedProperty?.id === prop.id;
       const isHovered = hoveredPropertyId === prop.id;
 
+      // Custo mensal total (aluguel + condomínio + iptu + seguro) de acordo com a tela do apartamento
+      const totalMonthlyCost =
+        (prop.monthlyRent || 0) +
+        (prop.condoFee || 0) +
+        (prop.iptu || 0) +
+        (prop.insurance || 0);
+
       // Ícone estilo Airbnb com preço e status
       const bgColor = isAvailable
         ? isSelected || isHovered
@@ -171,12 +178,14 @@ export default function InteractiveMap({
           : '#10b981' // Verde esmeralda disponível
         : '#64748b'; // Cinza/ardósia indisponível
 
-      const statusTag = isAvailable ? '' : ' (Alugado)';
+      const iconWidth = isAvailable ? 90 : 155;
+      const iconHeight = 32;
 
       const markerHtml = `
         <div class="price-marker-pin ${isSelected ? 'active' : ''}" style="
           display: flex;
           align-items: center;
+          justify-content: center;
           gap: 4px;
           background-color: ${bgColor};
           color: white;
@@ -188,17 +197,20 @@ export default function InteractiveMap({
           box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
           border: 2px solid white;
           cursor: pointer;
+          width: 100%;
+          height: 100%;
+          box-sizing: border-box;
         ">
-          <span>${formatCurrency(prop.monthlyRent)}</span>
-          <span style="font-size: 10px; opacity: 0.9;">${statusTag}</span>
+          <span>${formatCurrency(totalMonthlyCost)}</span>
+          ${!isAvailable ? '<span style="font-size: 10px; opacity: 0.9;">(Alugado)</span>' : ''}
         </div>
       `;
 
       const customIcon = L.divIcon({
         className: 'custom-property-pin',
         html: markerHtml,
-        iconSize: [80, 30],
-        iconAnchor: [40, 15],
+        iconSize: [iconWidth, iconHeight],
+        iconAnchor: [Math.round(iconWidth / 2), Math.round(iconHeight / 2)],
       });
 
       const marker = L.marker([prop.lat, prop.lng], {
@@ -252,7 +264,7 @@ export default function InteractiveMap({
 
             <div style="display: flex; align-items: baseline; gap: 4px; margin-bottom: 8px;">
               <span style="font-size: 16px; font-weight: 800; color: #1e3a8a;">
-                ${formatCurrency(prop.monthlyRent)}
+                ${formatCurrency(totalMonthlyCost)}
               </span>
               <span style="font-size: 11px; color: #64748b;">/mês</span>
             </div>

@@ -21,6 +21,12 @@
 }
 
 /* Custom Marker Divs */
+.custom-property-pin,
+.custom-university-icon {
+  background: transparent !important;
+  border: none !important;
+}
+
 .ufsc-marker-pulse {
   position: relative;
   width: 44px;
