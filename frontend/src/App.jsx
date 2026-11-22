@@ -30,6 +30,7 @@ export default function App() {
   // Layout responsivo móvel: 'SPLIT' (desktop) | 'MAP' | 'LIST'
   const [mobileView, setMobileView] = useState('LIST');
   const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
+  const [filtrosAbertos, setFiltrosAbertos] = useState(true);
 
   // Filtros
   const [filters, setFilters] = useState({
@@ -163,8 +164,13 @@ export default function App() {
       {/* 3. Área Principal: Sidebar de Filtros + Lista de Imóveis + Mapa Central */}
       <div className="flex-1 flex overflow-hidden relative">
         {/* Sidebar de Filtros (Desktop) */}
-        <div className="hidden lg:block w-72 shrink-0 h-full z-10 shadow-xs">
+        <div className={`hidden lg:block shrink-0 h-full z-10 shadow-xs transition-all duration-300 ${
+        filtrosAbertos ? 'w-80' : 'w-14'
+        }`}
+        >
           <FilterSidebar
+            filtrosAbertos={filtrosAbertos}
+            setFiltrosAbertos={setFiltrosAbertos}
             filters={filters}
             onFilterChange={handleFilterChange}
             onResetFilters={handleResetFilters}
@@ -206,6 +212,7 @@ export default function App() {
             onSelectProperty={(prop) => setSelectedProperty(prop)}
             hoveredPropertyId={hoveredPropertyId}
             radiusKm={filters.radiusKm}
+            filtrosAbertos={filtrosAbertos}
           />
         </div>
 

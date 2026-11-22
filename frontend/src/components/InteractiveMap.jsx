@@ -11,6 +11,7 @@ export default function InteractiveMap({
   onSelectProperty,
   hoveredPropertyId,
   radiusKm,
+  filtrosAbertos,
 }) {
   const mapContainerRef = useRef(null);
   const mapInstanceRef = useRef(null);
@@ -46,6 +47,18 @@ export default function InteractiveMap({
       }
     };
   }, []);
+
+  // 1.5 Redimensiona o mapa suavemente quando a barra de filtros abre ou fecha
+  useEffect(() => {
+    if (!mapInstanceRef.current) return;
+
+    const timer = setTimeout(() => {
+      mapInstanceRef.current.invalidateSize();
+    }, 310);
+
+    return () => clearTimeout(timer);
+  }, [filtrosAbertos]);
+
 
   // 2. Atualiza a Universidade Central e o Raio de Proximidade
   useEffect(() => {
@@ -341,7 +354,7 @@ export default function InteractiveMap({
         </button>
 
         {/* Zoom In/Out */}
-        <div className="bg-white/95 backdrop-blur-md rounded-xl shadow-md border border-slate-200 flex flex-col overflow-hidden">
+        <div className="self-end w-fit bg-white/95 backdrop-blur-md rounded-xl shadow-md border border-slate-200 flex flex-col overflow-hidden">
           <button
             onClick={handleZoomIn}
             className="p-2 text-slate-700 hover:bg-slate-100 hover:text-blue-600 transition-colors border-b border-slate-100"
