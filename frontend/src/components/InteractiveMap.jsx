@@ -33,7 +33,7 @@ export default function InteractiveMap({
       // Camada de azulejos OpenStreetMap
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution:
-          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | AlugaUFSC',
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | FloGuel',
         maxZoom: 19,
       }).addTo(map);
 
